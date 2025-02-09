@@ -4,7 +4,12 @@ on:
   push:
     branches: [ master ]
   pull_request:
-
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual trigger'
+        required: false
+        default: 'Manual run'
 jobs:
   build:
     runs-on: ${{ matrix.os }}
